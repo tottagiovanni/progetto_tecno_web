@@ -511,7 +511,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #intro h1 {
   color: #fff;
-  font-family: "Raleway", sans-serif;
   font-size: 56px;
   font-weight: 600;
   font-family: 'Pacifico'
@@ -677,6 +676,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding: 9px 20px;
   border-radius: 50px;
   font-size: 14px;
+  margin-block: 10px;
 }
 
 #search button {
@@ -694,6 +694,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #search button:hover {
   background: #e0072f;
+  color: white;
 }
 
 #search .last_minute{
@@ -727,14 +728,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   border-radius: 50px;
 }
 
-
 /* CATALOGO SECTION */
 
 #catalogo {
   background: #060c22;
   background: url(../img/intro-bg.jpg) top center;
   width: 100%;
-  height: 300px;
+  height: auto;
   background-size: cover;
   overflow: hidden;
   position: relative;
@@ -836,7 +836,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: grey;
   font-size: 22px;
 }
-#lista button{
+#lista .arrow{
   float: right;
   margin-right: 50px;
   background-color: transparent;
@@ -844,7 +844,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   height: 100px;
   width: 100px;
 }
-#lista button:focus{
+#lista .arrow:focus{
     outline: 0;
 }
 
@@ -914,6 +914,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 #faq {
   padding: 60px 0;
   background: rgba(6, 12, 34, 0.952);
+}
+
+#faq h2{
+  color: white;
 }
 
 #faq #faq-list {

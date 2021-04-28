@@ -23,13 +23,14 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
+  
+  <script>
+    function toTop(){
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
 
-  <!-- =======================================================
-    Theme Name: TheEvent
-    Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+
 </head>
 
 <body>
@@ -43,7 +44,7 @@
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
         <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-        <a href="#intro" class="scrollto"><img src="img/logowhite.png" alt="" title=""></a>
+        <a href="./index.html" class="scrollto"><img src="img/logowhite.png" alt="" title=""></a>
       </div>
 
       <nav id="nav-menu-container">
@@ -58,6 +59,24 @@
       </nav><!-- #nav-menu-container -->
     </div>
   </header><!-- #header -->
+  
+  
+  <script>
+    var turn = false;
+    function changeColor(id)
+    {
+      if(turn){
+        document.getElementById(id).style.color = "#f82249";
+        document.getElementById(id).style.backgroundColor = "white";
+      }
+      else{
+        document.getElementById(id).style.color = "white";
+        document.getElementById(id).style.backgroundColor = "#f82249";
+      }
+      turn = !turn;
+    }
+  </script>
+
 
   <section id="catalogo">
     <div class="search intro-container">
@@ -67,7 +86,7 @@
           <input type="text" placeholder="luogo">
           <input type="text" placeholder="società">
           <input type="month"> 
-            <input type="button" class="last_minute" value="LAST MINUTE">
+          <button type="button" class="last_minute" id="last" onclick="changeColor('last'); return false">LAST MINUTE</button>
           <br><br>
           <button type="submit" class="search_button">CERCA</button>
         </form>
@@ -78,19 +97,24 @@
   <section id="lista">
     <div class="horizontal-class">
       <div class="card">
-
+        
         <div class="row">
           <div class="innerLeft">
             <img src="img/gallery/4.jpg"> 
           </div>      
-          <div class="innerRight">
-            <div class="horizontal-card-footer">
-              <span class="card-text">05/05/2005</span>
-              <button><img src="./img/arrow.png" onclick="alert('CIAO A TUTTI')"></button>
-              <h4 class="card-title">Giovanni Live</h4>
-              <span class="price">1000€</span>            
-              <span class="card-text">In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</span>
-           </div>
+
+          <div class="innerRight horizontal-card-footer">
+            <span class="card-text">05/05/2005</span>
+
+            <button data-toggle="collapse" class="collapsed arrow" href="#prova"><img src="./img/arrow.png"></button>
+            
+            <h4 class="card-title">Giovanni Live</h4>
+            <span class="price">1000€</span>            
+            <span class="card-text">In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</span>
+           
+            <div class="collapse" id="prova">
+                <button onclick="alert('comprato')">COMPRA</button>
+            </div>
           </div> 
         </div>
 
@@ -99,14 +123,17 @@
         <div class="row">
           <div class="innerLeft">
             <img src="img/gallery/5.jpg"> 
-          </div>      
-          <div class="innerRight">
-            <div class="horizontal-card-footer">
-              <span class="card-text">05/05/2005</span>
-              <button><img src="./img/arrow.png" onclick="alert('CIAO A TUTTI')"></button>
-              <h4 class="card-title">Giovanni Live</h4>
-              <span class="price">1000€</span>            
-              <span class="card-text">In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</span>
+          </div>     
+          <div class="innerRight horizontal-card-footer">
+            <span class="card-text">05/05/2005</span>
+
+            <button data-toggle="collapse" class="collapsed arrow" href="#prova2"><img src="./img/arrow.png"></button>
+            
+            <h4 class="card-title">Giovanni Live</h4>
+            <span class="price">1000€</span>            
+            <span class="card-text">In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</span>
+            <div class="collapse" id="prova2">
+                <button onclick="alert('comprato')">COMPRA</button>
             </div>
           </div> 
         </div>
@@ -166,21 +193,17 @@
     </div>
   </footer><!-- #footer -->
 
-  <a href="#intro" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  <p class="back-to-top" onclick="toTop()"><i class="fa fa-angle-up"></i></p>
 
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/jquery/jquery-migrate.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
   <script src="lib/superfish/hoverIntent.js"></script>
   <script src="lib/superfish/superfish.min.js"></script>
   <script src="lib/wow/wow.min.js"></script>
   <script src="lib/venobox/venobox.min.js"></script>
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
