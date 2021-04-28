@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>TheEvent - Preordina!</title>
+  <link rel="icon" href="img/favicon.png" type="image/x-icon">
+
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/venobox/venobox.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <script>
+    function toTop(){
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+
+
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+        <a href="./index.html" class="scrollto"><img src="img/logowhite.png" alt="" title=""></a>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="./index.html">Home</a></li>
+          <li class="menu-active"><a href="./catalogo.html">Catalogo</a></li>
+          <li><a href="#schedule">Come comprare</a></li>
+          <li><a href="./chisiamo.html">Chi siamo</a></li>
+          <li><a href="./index.html#faq">FAQ</a></li>
+          <li class="buy-tickets"><a href="#buy-tickets">LOGIN</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+  
+  
+  <script>
+    var turn = false;
+    function changeColor(id)
+    {
+      if(turn){
+        document.getElementById(id).style.color = "#f82249";
+        document.getElementById(id).style.backgroundColor = "white";
+      }
+      else{
+        document.getElementById(id).style.color = "white";
+        document.getElementById(id).style.backgroundColor = "#f82249";
+      }
+      turn = !turn;
+    }
+  </script>
+
+
+  <section id="catalogo">
+    <div class="search intro-container">
+      <section id="search">
+        <form method="GET">
+          <input type="text" placeholder="cosa vuoi cercare?" id="descrizione">
+          <input type="text" placeholder="luogo">
+          <input type="text" placeholder="società">
+          <input type="month"> 
+          <button type="button" class="last_minute" id="last" onclick="changeColor('last'); return false">LAST MINUTE</button>
+          <br><br>
+          <button type="submit" class="search_button">CERCA</button>
+        </form>
+      </section>
+    </div>
+  </section>
+
+  <section id="lista">
+    <div class="horizontal-class">
+      <div class="card">
+        
+        <div class="row">
+          <div class="innerLeft">
+            <img src="img/gallery/4.jpg"> 
+          </div>      
+
+          <div class="innerRight horizontal-card-footer">
+            <span class="card-text">05/05/2005</span>
+
+            <button data-toggle="collapse" class="collapsed arrow" href="#prova"><img src="./img/arrow.png"></button>
+            
+            <h4 class="card-title">Giovanni Live</h4>
+            <span class="price">1000€</span>            
+            <span class="card-text">In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</span>
+           
+            <div class="collapse" id="prova">
+                <button onclick="alert('comprato')">COMPRA</button>
+            </div>
+          </div> 
+        </div>
+
+        <hr color="white" margin-left="50px" margin-right="50px">
+
+        <div class="row">
+          <div class="innerLeft">
+            <img src="img/gallery/5.jpg"> 
+          </div>     
+          <div class="innerRight horizontal-card-footer">
+            <span class="card-text">05/05/2005</span>
+
+            <button data-toggle="collapse" class="collapsed arrow" href="#prova2"><img src="./img/arrow.png"></button>
+            
+            <h4 class="card-title">Giovanni Live</h4>
+            <span class="price">1000€</span>            
+            <span class="card-text">In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</span>
+            <div class="collapse" id="prova2">
+                <button onclick="alert('comprato')">COMPRA</button>
+            </div>
+          </div> 
+        </div>
+        
+      </div>
+    </div>
+  </section>
+</body>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Chi siamo</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Come comprare</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="fa fa-angle-right"></i> <a href="#">FAQ</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022<br>
+              United States <br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+
+          </div>
+          <div class="col-lg-3 col-md-6 social-links">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <p class="back-to-top" onclick="toTop()"><i class="fa fa-angle-up"></i></p>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/venobox/venobox.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
