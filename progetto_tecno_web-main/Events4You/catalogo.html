@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+      <meta charset="utf-8">
+
+      <title>TheEvent - Preordina!</title>
+      <link rel="icon" href="img/favicon.png" type="image/x-icon">
+
+
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+      <!-- Bootstrap CSS File -->
+      <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+      <!-- Libraries CSS Files -->
+      <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+      <link href="lib/animate/animate.min.css" rel="stylesheet">
+      <link href="lib/venobox/venobox.css" rel="stylesheet">
+      <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+      <!-- Main Stylesheet File -->
+      <link href="css/style.css" rel="stylesheet">
+      
+      <script>
+        function toTop(){
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+
+    </head>
+
+    <body>
+      <!--==========================
+        Header
+      ============================-->
+      <header id="header">
+        <div class="container">
+
+          <div id="logo" class="pull-left">
+            <!-- Uncomment below if you prefer to use a text logo -->
+            <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+            <a href="./index.html" class="scrollto"><img src="img/logowhite.png" alt="" title=""></a>
+          </div>
+
+          <nav id="nav-menu-container">
+            <ul class="nav-menu">
+              <li><a href="./index.html">Home</a></li>
+              <li class="menu-active"><a href="./catalogo.html">Catalogo</a></li>
+              <li><a href="./comecomprare.html">Come comprare</a></li>
+              <li><a href="./chisiamo.html">Chi siamo</a></li>
+              <li><a href="./index.html#faq">FAQ</a></li>
+              <li class="buy-tickets"><a href="#buy-tickets">LOGIN</a></li>
+            </ul>
+          </nav><!-- #nav-menu-container -->
+        </div>
+      </header><!-- #header -->
+      
+      
+      <script>
+        var turn = false;
+        function changeColor(id)
+        {
+          if(turn){
+            document.getElementById(id).style.color = "#f82249";
+            document.getElementById(id).style.backgroundColor = "white";
+          }
+          else{
+            document.getElementById(id).style.color = "white";
+            document.getElementById(id).style.backgroundColor = "#f82249";
+          }
+          turn = !turn;
+        }
+      </script>
+
+
+      <section id="catalogo">
+        <div class="search intro-container">
+          <section id="search">
+            <form method="GET" action="./catalogo.html">
+              <input type="text" placeholder="cosa vuoi cercare?" name="descrizione">
+              <input type="text" placeholder="luogo">
+              <input type="text" placeholder="società">
+              <input type="month"> 
+              <button type="button" class="last_minute" id="last" onclick="changeColor('last'); return false">LAST MINUTE</button>
+              <br><br>
+              <button type="submit" class="search_button">CERCA</button>
+            </form>
+          </section>
+        </div>
+      </section>
+
+
+      <section id="lista">
+        <div class="horizontal-class">
+          <div class="card">
+            
+            <div class="row">
+              <div class="innerLeft">
+                <img class="preview" src="img/gallery/4.jpg"> 
+              </div>      
+
+              <div class="innerRight horizontal-card-footer">
+                <span class="card-text">05/05/2005 - Ancona</span>
+
+                <button data-toggle="collapse" class="collapsed arrow" href="#prova"><img src="./img/arrow.png"></button>
+                
+                <h4 class="card-title">Giovanni Live</h4>
+                <span class="price">1000€</span>            
+                <span class="card-text">In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. </span>
+              
+                <div class="collapse" id="prova">
+                  <span class="card-text">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed lacinia odio quis dolor ultrices laoreet. Phasellus et congue dolor, et volutpat ante. Ut et malesuada arcu, hendrerit auctor nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus.</span>
+                  
+                  <div class="google-maps">
+                    <iframe class="gmaps-frame" width="250" height="150" src="https://maps.google.com/maps?width=200&amp;height=300&amp;hl=en&amp;q=milano+piazza+duomo&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed"></iframe>
+                  </div>
+                
+                  <span class="card-text"> 
+                    <span class="card-text">Ancona - Palaindoor</span>
+                    <span class="card-text">Biglietti disponibili: <span class="price">150</span></span>
+                    <span class="card-text">
+                      Già <span style="color: red;">56</span> persone parteciperanno.
+                      <button type="button" class="partecipa" id="part" onclick="changeColor('part'); return false">Partecipo anche io!</button>
+                    </span>
+                    <button onclick="alert('comprato')" class="compra">COMPRA</button>
+                  </span>
+                </div>
+              </div> 
+            </div>
+
+            <hr color="white" margin-left="50px" margin-right="50px">
+
+          
+            <div class="row">
+              <div class="innerLeft">
+                <img class="preview" src="img/gallery/3.jpg"> 
+              </div>      
+
+              <div class="innerRight horizontal-card-footer">
+                <span class="card-text">05/05/2005 - Ancona</span>
+
+                <button data-toggle="collapse" class="collapsed arrow" href="#prova2"><img src="./img/arrow.png"></button>
+                
+                <h4 class="card-title">Giovanni Live</h4>
+                <span class="price">1000€</span>            
+                <span class="card-text">In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. </span>
+              
+                <div class="collapse" id="prova2">
+                  <span class="card-text">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed lacinia odio quis dolor ultrices laoreet. Phasellus et congue dolor, et volutpat ante. Ut et malesuada arcu, hendrerit auctor nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus.</span>
+                  
+                  <div class="google-maps">
+                    <iframe class="gmaps-frame" width="200" height="150" src="https://maps.google.com/maps?width=200&amp;height=300&amp;hl=en&amp;q=ancona+palaindoor&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed"></iframe>
+                  </div>
+                
+                  <span class="card-text"> 
+                    <span class="card-text">Ancona - Palaindoor</span>
+                    <span class="card-text">Biglietti disponibili: <span class="price">150</span></span>
+                    <span class="card-text">
+                      Già <span style="color: red;">56</span> persone parteciperanno.
+                      <button type="button" class="partecipa" id="part" onclick="changeColor('part'); return false">Partecipo anche io!</button>
+                    </span>
+                    <button onclick="alert('comprato')" class="compra">COMPRA</button>
+                  </span>
+                </div>
+              </div> 
+            </div>
+
+            <hr color="white" margin-left="50px" margin-right="50px">
+
+          
+            <div class="row">
+              <div class="innerLeft">
+                <img class="preview" src="img/gallery/5.jpg"> 
+              </div>      
+
+              <div class="innerRight horizontal-card-footer">
+                <span class="card-text">05/05/2005 - Ancona</span>
+
+                <button data-toggle="collapse" class="collapsed arrow" href="#prova3"><img src="./img/arrow.png"></button>
+                
+                <h4 class="card-title">Giovanni Live</h4>
+                <span class="price canc">1000€</span>       
+                <span class="price sale">850€</span>
+                <span class="card-text">In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. </span>
+              
+                <div class="collapse" id="prova3">
+                  <span class="card-text">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed lacinia odio quis dolor ultrices laoreet. Phasellus et congue dolor, et volutpat ante. Ut et malesuada arcu, hendrerit auctor nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus.</span>
+                  
+                  <div class="google-maps">
+                    <iframe class="gmaps-frame" width="200" height="150" src="https://maps.google.com/maps?width=200&amp;height=300&amp;hl=en&amp;q=ancona+palaindoor&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed"></iframe>
+                  </div>
+                
+                  <span class="card-text"> 
+                    <span class="card-text">Ancona - Palaindoor</span>
+                    <span class="card-text">Biglietti disponibili: <span class="price">150</span></span>
+                    <span class="card-text">
+                      Già <span style="color: red;">56</span> persone parteciperanno.
+                      <button type="button" class="partecipa" id="part" onclick="changeColor('part'); return false">Partecipo anche io!</button>
+                    </span>
+                    <button onclick="alert('comprato')" class="compra">COMPRA</button>
+                  </span>
+                </div>
+              </div> 
+            </div>
+            
+          </div>
+        </div>
+      </section>
+      
+      <!--==========================
+        Footer
+      ============================-->
+      <footer id="footer">
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Link utili</h4>
+                <ul>
+                  <li><i class="fa fa-angle-right"></i> <a href="./index.html">Home</a></li>
+                  <li><i class="fa fa-angle-right"></i> <a href="./chisiamo.html">Chi siamo</a></li>
+                  <li><i class="fa fa-angle-right"></i> <a href="./comecomprare.html">Come comprare</a></li>
+                </ul>
+              </div>
+
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Link utili</h4>
+                <ul>
+                  <li><i class="fa fa-angle-right"></i> <a href="./index.html#faq">FAQ</a></li>
+                  <li><i class="fa fa-angle-right"></i> <a href="">Terms of service</a></li>
+                  <li><i class="fa fa-angle-right"></i> <a href="">Adesione società</a></li>
+                </ul>
+              </div>
+
+              <div class="col-lg-3 col-md-6 footer-contact">
+                <h4>Contatti</h4>
+                <p>
+                  Via Brecce Bianche, 12 <br>
+                  Ancona, 60131, Italia <br>
+                  <strong>Telefono:</strong> +39 056 895 1456<br>
+                  <strong>Email:</strong> giovanni@live.it<br>
+                </p>
+
+              </div>
+              <div class="col-lg-3 col-md-6 social-links"><br>
+                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>            
+                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </footer><!-- #footer -->
+
+      <p class="back-to-top" onclick="toTop()"><i class="fa fa-angle-up"></i></p>
+
+      <!-- JavaScript Libraries -->
+      <script src="lib/jquery/jquery.min.js"></script>
+      <script src="lib/jquery/jquery-migrate.min.js"></script>
+      <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/superfish/hoverIntent.js"></script>
+      <script src="lib/superfish/superfish.min.js"></script>
+      <script src="lib/wow/wow.min.js"></script>
+      <script src="lib/venobox/venobox.min.js"></script>
+      <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+      <!-- Template Main Javascript File -->
+      <script src="js/main.js"></script>
+    </body> 
+
+</html>
