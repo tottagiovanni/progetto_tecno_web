@@ -933,6 +933,37 @@ body.mobile-nav-active #mobile-nav-toggle {
   z-index: 1;
 }
 
+#gallery .description{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(6, 12, 34, 0.5);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s, visibility .2s;
+}
+
+#gallery .gallery-element:hover .description {
+  visibility: visible;
+  opacity: 1;
+}
+
+#gallery p{
+  margin: auto;
+  height: auto;
+  width: auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  opacity: 1;
+  font-family: "Raleway", sans-serif;
+  font-size: 2ex;
+}
+
 /*CHI SIAMO*/
 
 #chisiamointro {
