@@ -50,8 +50,8 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li><a href="./index.html">Home</a></li>
-          <li class="menu-active"><a href="./catalogo.html">Catalogo</a></li>
-          <li><a href="./comecomprare.html">Come comprare</a></li>
+          <li><a href="./catalogo.html">Catalogo</a></li>
+          <li class="menu-active"><a href="./comecomprare.html">Come comprare</a></li>
           <li><a href="./chisiamo.html">Chi siamo</a></li>
           <li><a href="./index.html#faq">FAQ</a></li>
           <li class="buy-tickets"><a href="#buy-tickets">LOGIN</a></li>
@@ -60,88 +60,37 @@
     </div>
   </header><!-- #header -->
   
+
+  <section id="shopguideintro">
+      <div class="intro-container"></div>
+  </section>
   
-  <script>
-    var turn = false;
-    function changeColor(id)
-    {
-      if(turn){
-        document.getElementById(id).style.color = "#f82249";
-        document.getElementById(id).style.backgroundColor = "white";
-      }
-      else{
-        document.getElementById(id).style.color = "white";
-        document.getElementById(id).style.backgroundColor = "#f82249";
-      }
-      turn = !turn;
-    }
-  </script>
-
-
-  <section id="catalogo">
-    <div class="search intro-container">
-      <section id="search">
-        <form method="GET">
-          <input type="text" placeholder="cosa vuoi cercare?" id="descrizione">
-          <input type="text" placeholder="luogo">
-          <input type="text" placeholder="società">
-          <input type="month"> 
-          <button type="button" class="last_minute" id="last" onclick="changeColor('last'); return false">LAST MINUTE</button>
-          <br><br>
-          <button type="submit" class="search_button">CERCA</button>
-        </form>
-      </section>
+  <section id="shopguide">
+    <h2>Guida all'acquisto</h2>
+    <div style="text-align:center">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/rxJ8B0IDy_c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+    <p><b>Accedere a 18App</b><br>
+        Se sei nato nel 1999 e vuoi iniziare a creare buoni 18app per spendere i 500 euro del Bonus Cultura, 
+        collegati al sito 18app.italia.it e premi sul pulsante Entra con SPID per accedere al tuo account, dopodiché 
+        seleziona l’Identity provider sul quale hai ottenuto la tua identità digitale scegliendo
+        tra Aruba, TIM, Poste Italiane, Register, Spid Italia, Sielte, Infocert e Namirial. Adesso, digita i tuoi dati
+        nei campi Username e Password e pigia sul bottone Entra con SPID per effettuare il login e iniziare a creare i tuoi buoni.</p>
+    <img src="img/gallery/18app1.jpeg">
+    <p><b>Creare buoni 18app tramite computer</b><br>
+        Per verificare i venditori e i siti Web aderenti all’iniziativa,premi sul pulsante ≡ e fai clic 
+        sulla voce Dove spendere i buoni, dopodiché seleziona un’opzione tra Fisico e Online e pigia sulla categoria di tuo interesse
+         tra Cinema, Concerti, Eventi culturali, Libri, Musei, Monumenti e parchi,Teatro e danza, Formazione e Musica registrata.</p>
+    <img src="img/gallery/18app2.jpeg">
+    <p>Nella pagina che si apre, fai quindi clic sulla voce Crea buono e pigia sulla voce Fisico per creare un buono da spendere
+         in un negozio fisico, altrimenti premi sull’opzione Online per fare acquisti su Internet. Adesso, scegli la categoria del
+          tuo acquisto facendo clic su una delle opzioni disponibili tra Cinema, Concerti, Eventi culturali, Libri, Musei, Monumenti 
+          e parchi, Teatro e danza, Formazione e Musica registrata, dopodiché seleziona il tipo di prodotto da acquistare e inseriscine
+         l’importo.</p>
+    <img src="img/gallery/18app3.jpeg">
+
+    
   </section>
-
-  <section id="lista">
-    <div class="horizontal-class">
-      <div class="card">
-        
-        <div class="row">
-          <div class="innerLeft">
-            <img src="img/gallery/4.jpg"> 
-          </div>      
-
-          <div class="innerRight horizontal-card-footer">
-            <span class="card-text">05/05/2005</span>
-
-            <button data-toggle="collapse" class="collapsed arrow" href="#prova"><img src="./img/arrow.png"></button>
-            
-            <h4 class="card-title">Giovanni Live</h4>
-            <span class="price">1000€</span>            
-            <span class="card-text">In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</span>
-           
-            <div class="collapse" id="prova">
-                <button onclick="alert('comprato')">COMPRA</button>
-            </div>
-          </div> 
-        </div>
-
-        <hr color="white" margin-left="50px" margin-right="50px">
-
-        <div class="row">
-          <div class="innerLeft">
-            <img src="img/gallery/5.jpg"> 
-          </div>     
-          <div class="innerRight horizontal-card-footer">
-            <span class="card-text">05/05/2005</span>
-
-            <button data-toggle="collapse" class="collapsed arrow" href="#prova2"><img src="./img/arrow.png"></button>
-            
-            <h4 class="card-title">Giovanni Live</h4>
-            <span class="price">1000€</span>            
-            <span class="card-text">In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</span>
-            <div class="collapse" id="prova2">
-                <button onclick="alert('comprato')">COMPRA</button>
-            </div>
-          </div> 
-        </div>
-        
-      </div>
-    </div>
-  </section>
-</body>
 
   <!--==========================
     Footer
