@@ -63,9 +63,8 @@ CREATE TABLE `evento` (
   `data` date NOT NULL,
   `disponibilita` smallint(5) UNSIGNED NOT NULL,
   `partecipazione` smallint(5) UNSIGNED NOT NULL,
-  `prezzo` decimal(10,2) NOT NULL,
-  `mappa` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `prezzo` decimal(10,2) NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
