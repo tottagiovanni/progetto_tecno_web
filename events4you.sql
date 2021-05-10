@@ -41,6 +41,7 @@ CREATE TABLE `analisi` (
 --
 
 CREATE TABLE `biglietto` (
+  `id_biglietto` int(11) NOT NULL,
   `id_utente` varchar(32) COLLATE utf8_bin NOT NULL,
   `id_evento` int(11) NOT NULL,
   `numero` smallint(5) UNSIGNED NOT NULL,
@@ -63,7 +64,9 @@ CREATE TABLE `evento` (
   `data` date NOT NULL,
   `disponibilita` smallint(5) UNSIGNED NOT NULL,
   `partecipazione` smallint(5) UNSIGNED NOT NULL,
-  `prezzo` decimal(10,2) NOT NULL
+  `prezzo` decimal(10,2) NOT NULL,
+  `percentuale` tinyint(3) UNSIGNED NOT NULL,
+  `data_inizio` date NOT NULL
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -76,18 +79,6 @@ CREATE TABLE `faq` (
   `id` int(11) NOT NULL,
   `domanda` text COLLATE utf8_bin NOT NULL,
   `risposta` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `last_minute`
---
-
-CREATE TABLE `last_minute` (
-  `id_evento` int(11) NOT NULL,
-  `percentuale` tinyint(3) UNSIGNED NOT NULL,
-  `data_inizio` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -124,16 +115,13 @@ CREATE TABLE `partecipazione` (
 -- Indici per le tabelle `analisi`
 --
 ALTER TABLE `analisi`
-  ADD PRIMARY KEY (`id_utente`,`id_evento`),
-  ADD KEY `id_evento` (`id_evento`);
-
+  ADD PRIMARY KEY (`id_utente`,`id_evento`);
 --
 -- Indici per le tabelle `biglietto`
 --
 ALTER TABLE `biglietto`
-  ADD PRIMARY KEY (`id_utente`,`id_evento`),
-  ADD KEY `id_evento` (`id_evento`);
-
+  ADD PRIMARY KEY (`id_biglietto`),
+  ADD KEY (`id_utente`,`id_evento`);
 --
 -- Indici per le tabelle `evento`
 --
@@ -145,12 +133,6 @@ ALTER TABLE `evento`
 --
 ALTER TABLE `faq`
   ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `last_minute`
---
-ALTER TABLE `last_minute`
-  ADD PRIMARY KEY (`id_evento`);
 
 --
 -- Indici per le tabelle `partecipazione`
@@ -173,6 +155,12 @@ ALTER TABLE `utente`
 --
 ALTER TABLE `evento`
   MODIFY `id_evento` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `biglietto`
+--
+ALTER TABLE `biglietto`
+  MODIFY `id_biglietto` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `faq`
@@ -205,12 +193,6 @@ ALTER TABLE `biglietto`
 ALTER TABLE `partecipazione`
   ADD CONSTRAINT `partecipazione_ibfk_1` FOREIGN KEY (`id_utente`) REFERENCES `utente` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `partecipazione_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id_evento`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Limiti per la tabella `last_minute`
---
-ALTER TABLE `last_minute`
-  ADD CONSTRAINT `last_minute_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id_evento`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
