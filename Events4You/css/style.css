@@ -1414,6 +1414,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   text-align:center;
   width: auto;
   height: 200px;
+  border: 5px solid;
+  border-radius: 10%;
+  border-color: #f82249;
 }
 
 
