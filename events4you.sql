@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `analisi`
+-- Struttura della tabella `gestione`
 --
 
-CREATE TABLE `analisi` (
+CREATE TABLE `gestione` (
   `id_utente` varchar(32) COLLATE utf8_bin NOT NULL,
   `id_evento` int(11) NOT NULL,
   `biglietti_venduti` int(10) UNSIGNED NOT NULL,
@@ -102,8 +102,7 @@ CREATE TABLE `utente` (
 
 CREATE TABLE `partecipazione` (
   `id_utente` varchar(32) COLLATE utf8_bin NOT NULL,
-  `id_evento` int(11) NOT NULL,
-  `partecipante` tinyint(1) NOT NULL
+  `id_evento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
@@ -112,9 +111,9 @@ CREATE TABLE `partecipazione` (
 --
 
 --
--- Indici per le tabelle `analisi`
+-- Indici per le tabelle `gestione`
 --
-ALTER TABLE `analisi`
+ALTER TABLE `gestione`
   ADD PRIMARY KEY (`id_utente`,`id_evento`);
 --
 -- Indici per le tabelle `biglietto`
@@ -173,11 +172,11 @@ ALTER TABLE `faq`
 --
 
 --
--- Limiti per la tabella `analisi`
+-- Limiti per la tabella `gestione`
 --
-ALTER TABLE `analisi`
-  ADD CONSTRAINT `analisi_ibfk_1` FOREIGN KEY (`id_utente`) REFERENCES `utente` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `analisi_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id_evento`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `gestione`
+  ADD CONSTRAINT `gestione_ibfk_1` FOREIGN KEY (`id_utente`) REFERENCES `utente` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `gestione_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id_evento`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `biglietto`
