@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 03, 2021 alle 10:41
--- Versione del server: 10.4.18-MariaDB
--- Versione PHP: 8.0.3
+-- Creato il: Mag 22, 2021 alle 16:19
+-- Versione del server: 10.4.17-MariaDB
+-- Versione PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,50 +24,48 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gestione`
+-- Struttura della tabella `event`
 --
 
-CREATE TABLE `gestione` (
-  `id_utente` varchar(32) COLLATE utf8_bin NOT NULL,
-  `id_evento` int(11) NOT NULL,
-  `biglietti_venduti` int(10) UNSIGNED NOT NULL,
-  `ricavo` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+CREATE TABLE `event` (
+  `eventId` int(11) NOT NULL,
+  `title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descShort` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descLong` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `location` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` date NOT NULL,
+  `image` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `totTickets` smallint(5) UNSIGNED NOT NULL,
+  `participants` smallint(5) UNSIGNED NOT NULL,
+  `price` decimal(10,2) UNSIGNED NOT NULL,
+  `lastMinPerc` tinyint(3) UNSIGNED NOT NULL,
+  `dateLastMin` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dump dei dati per la tabella `event`
+--
+
+INSERT INTO `event` (`eventId`, `title`, `descShort`, `descLong`, `location`, `date`, `image`, `totTickets`, `participants`, `price`, `lastMinPerc`, `dateLastMin`, `created_at`, `updated_at`) VALUES
+(1, 'Evento di prova', 'descizione breve', 'descrizione più lunga', 'Ancona', '2021-05-22', NULL, 500, 15, '55.07', 0, '2021-05-27', NULL, NULL),
+(2, 'Evento 2 di prova', 'descizione breve', 'descrizione più lunga', 'Ancona', '2021-05-22', NULL, 500, 15, '55.07', 0, '2021-05-27', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `biglietto`
+-- Struttura della tabella `failed_jobs`
 --
 
-CREATE TABLE `biglietto` (
-  `id_biglietto` int(11) NOT NULL,
-  `id_utente` varchar(32) COLLATE utf8_bin NOT NULL,
-  `id_evento` int(11) NOT NULL,
-  `numero` smallint(5) UNSIGNED NOT NULL,
-  `data_acquisto` date NOT NULL,
-  `mod_pagamento` varchar(20) COLLATE utf8_bin NOT NULL,
-  `prezzo_totale` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `evento`
---
-
-CREATE TABLE `evento` (
-  `id_evento` int(11) NOT NULL,
-  `titolo` varchar(50) COLLATE utf8_bin NOT NULL,
-  `descrizione` text COLLATE utf8_bin NOT NULL,
-  `luogo` varchar(32) COLLATE utf8_bin NOT NULL,
-  `data` date NOT NULL,
-  `disponibilita` smallint(5) UNSIGNED NOT NULL,
-  `partecipazione` smallint(5) UNSIGNED NOT NULL,
-  `prezzo` decimal(10,2) NOT NULL,
-  `percentuale` tinyint(3) UNSIGNED NOT NULL,
-  `data_inizio` date NOT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -76,73 +74,173 @@ CREATE TABLE `evento` (
 --
 
 CREATE TABLE `faq` (
-  `id` int(11) NOT NULL,
-  `domanda` text COLLATE utf8_bin NOT NULL,
-  `risposta` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `faqId` int(10) UNSIGNED NOT NULL,
+  `question` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `answer` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `utente`
+-- Struttura della tabella `management`
 --
 
-CREATE TABLE `utente` (
-  `username` varchar(32) COLLATE utf8_bin NOT NULL,
-  `password` varchar(32) COLLATE utf8_bin NOT NULL,
-  `nome` varchar(50) COLLATE utf8_bin NOT NULL,
-  `livello` tinyint(3) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+CREATE TABLE `management` (
+  `userId` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `eventId` int(11) NOT NULL,
+  `soldTickets` int(10) UNSIGNED NOT NULL,
+  `earnings` decimal(10,2) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `partecipazione`
+-- Struttura della tabella `migrations`
 --
 
-CREATE TABLE `partecipazione` (
-  `id_utente` varchar(32) COLLATE utf8_bin NOT NULL,
-  `id_evento` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dump dei dati per la tabella `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2021_05_22_091437_create_event_table', 1),
+(5, '2021_05_22_093341_create_faq_table', 1),
+(6, '2021_05_22_093555_create_ticket_table', 1),
+(7, '2021_05_22_094924_create_management_table', 1),
+(8, '2021_05_22_095402_create_participation_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `participation`
+--
+
+CREATE TABLE `participation` (
+  `userId` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `eventId` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `ticket`
+--
+
+CREATE TABLE `ticket` (
+  `ticketId` int(10) UNSIGNED NOT NULL,
+  `userId` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `eventId` int(11) NOT NULL,
+  `numTickets` smallint(5) UNSIGNED NOT NULL,
+  `date` date NOT NULL,
+  `paymentMethod` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `totPrice` decimal(10,2) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `user`
+--
+
+CREATE TABLE `user` (
+  `username` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level` tinyint(3) UNSIGNED NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Indici per le tabelle scaricate
 --
 
 --
--- Indici per le tabelle `gestione`
+-- Indici per le tabelle `event`
 --
-ALTER TABLE `gestione`
-  ADD PRIMARY KEY (`id_utente`,`id_evento`);
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`eventId`);
+
 --
--- Indici per le tabelle `biglietto`
+-- Indici per le tabelle `failed_jobs`
 --
-ALTER TABLE `biglietto`
-  ADD PRIMARY KEY (`id_biglietto`),
-  ADD KEY (`id_utente`,`id_evento`);
---
--- Indici per le tabelle `evento`
---
-ALTER TABLE `evento`
-  ADD PRIMARY KEY (`id_evento`);
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `faq`
 --
 ALTER TABLE `faq`
+  ADD PRIMARY KEY (`faqId`);
+
+--
+-- Indici per le tabelle `management`
+--
+ALTER TABLE `management`
+  ADD PRIMARY KEY (`userId`,`eventId`),
+  ADD KEY `management_eventid_foreign` (`eventId`);
+
+--
+-- Indici per le tabelle `migrations`
+--
+ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `partecipazione`
+-- Indici per le tabelle `participation`
 --
-ALTER TABLE `partecipazione`
-  ADD PRIMARY KEY (`id_utente`,`id_evento`);
+ALTER TABLE `participation`
+  ADD PRIMARY KEY (`userId`,`eventId`),
+  ADD KEY `participation_eventid_foreign` (`eventId`);
 
 --
--- Indici per le tabelle `utente`
+-- Indici per le tabelle `password_resets`
 --
-ALTER TABLE `utente`
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indici per le tabelle `ticket`
+--
+ALTER TABLE `ticket`
+  ADD PRIMARY KEY (`ticketId`),
+  ADD KEY `ticket_userid_foreign` (`userId`),
+  ADD KEY `ticket_eventid_foreign` (`eventId`);
+
+--
+-- Indici per le tabelle `user`
+--
+ALTER TABLE `user`
   ADD PRIMARY KEY (`username`);
 
 --
@@ -150,48 +248,53 @@ ALTER TABLE `utente`
 --
 
 --
--- AUTO_INCREMENT per la tabella `evento`
+-- AUTO_INCREMENT per la tabella `failed_jobs`
 --
-ALTER TABLE `evento`
-  MODIFY `id_evento` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT per la tabella `biglietto`
---
-ALTER TABLE `biglietto`
-  MODIFY `id_biglietto` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `faq`
 --
 ALTER TABLE `faq`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `faqId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT per la tabella `ticket`
+--
+ALTER TABLE `ticket`
+  MODIFY `ticketId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Limiti per le tabelle scaricate
 --
 
 --
--- Limiti per la tabella `gestione`
+-- Limiti per la tabella `management`
 --
-ALTER TABLE `gestione`
-  ADD CONSTRAINT `gestione_ibfk_1` FOREIGN KEY (`id_utente`) REFERENCES `utente` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `gestione_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id_evento`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `management`
+  ADD CONSTRAINT `management_eventid_foreign` FOREIGN KEY (`eventId`) REFERENCES `event` (`eventId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `management_userid_foreign` FOREIGN KEY (`userId`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `biglietto`
+-- Limiti per la tabella `participation`
 --
-ALTER TABLE `biglietto`
-  ADD CONSTRAINT `biglietto_ibfk_1` FOREIGN KEY (`id_utente`) REFERENCES `utente` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `biglietto_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id_evento`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `participation`
+  ADD CONSTRAINT `participation_eventid_foreign` FOREIGN KEY (`eventId`) REFERENCES `event` (`eventId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `participation_userid_foreign` FOREIGN KEY (`userId`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-
 --
--- Limiti per la tabella `partecipazione`
+-- Limiti per la tabella `ticket`
 --
-ALTER TABLE `partecipazione`
-  ADD CONSTRAINT `partecipazione_ibfk_1` FOREIGN KEY (`id_utente`) REFERENCES `utente` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `partecipazione_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id_evento`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ticket`
+  ADD CONSTRAINT `ticket_eventid_foreign` FOREIGN KEY (`eventId`) REFERENCES `event` (`eventId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ticket_userid_foreign` FOREIGN KEY (`userId`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
